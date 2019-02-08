@@ -19,7 +19,9 @@ Route::group(['namespace' => 'Web'], function () {
     Route::name('disease.')->group( function () {
         Route::group(['namespace' => 'Disease','prefix' => 'penyakit'], function () {
             Route::get('/','DiseaseController@index')->name('index');
-
+            Route::post('/save','DiseaseController@save')->name('save');
+            Route::put('/update','DiseaseController@update')->name('update');
+            Route::delete('/delete','DiseaseController@delete')->name('delete');
         });
     });
 
