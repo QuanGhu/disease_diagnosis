@@ -72,7 +72,8 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
     Route::name('diagnose.')->group( function() {
         Route::group(['namespace' => 'Diagnose','prefix' => 'diagnosa'], function () {
             Route::get('/','DiagnoseController@index')->name('index');
-
+            Route::get('/result/{id}','DiagnoseController@index')->name('result');
+            Route::post('/list','DiagnoseController@list')->name('list');
         });
     });
 
