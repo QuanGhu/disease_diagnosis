@@ -11,4 +11,9 @@ class Disease extends Model
     protected $fillable = [
         'name','code'
     ];
+
+    public function solutions()
+    {
+        return $this->hasMany('App\Models\Solution','disease_id');
+    }
 }

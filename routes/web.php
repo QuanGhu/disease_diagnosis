@@ -43,4 +43,19 @@ Route::group(['namespace' => 'Web'], function () {
 
         });
     });
+
+    Route::name('solution.')->group( function() {
+        Route::group(['namespace' => 'Solution','prefix' => 'solusi'], function () {
+            Route::get('/','SolutionController@index')->name('index');
+            Route::post('/list','SolutionController@list')->name('list');
+            Route::post('/save','SolutionController@save')->name('save');
+            Route::put('/update','SolutionController@update')->name('update');
+            Route::delete('/delete','SolutionController@delete')->name('delete');
+
+        });
+    });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

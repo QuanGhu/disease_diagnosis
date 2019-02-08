@@ -6,6 +6,7 @@
         <ul class="dropdown-menu">
             <li><a href="{{ route('disease.index') }}">Nama Penyakit</a></li>
             <li><a href="{{ route('cause.index') }}">Gejala</a></li>
+            <li><a href="{{ route('solution.index') }}">Solusi</a></li>
             <li><a href="{{ route('rule.index') }}">Ketentuan</a></li>
         </ul>
     </li>
