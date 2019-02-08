@@ -72,8 +72,11 @@ Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
     Route::name('diagnose.')->group( function() {
         Route::group(['namespace' => 'Diagnose','prefix' => 'diagnosa'], function () {
             Route::get('/','DiagnoseController@index')->name('index');
-            Route::get('/result/{id}','DiagnoseController@index')->name('result');
+            Route::get('/regis','DiagnoseController@regis')->name('regis');
+            Route::get('/new','DiagnoseController@new')->name('new');
+            Route::get('/result/{id}','DiagnoseController@showResult')->name('result');
             Route::post('/list','DiagnoseController@list')->name('list');
+            Route::post('/process','DiagnoseController@process')->name('process');
         });
     });
 

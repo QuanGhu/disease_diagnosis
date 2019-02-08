@@ -13,7 +13,7 @@
                 <a target="_blank" href="#" class="btn btn-default">Cetak Tabel</a>
             </div>
             <div class="col-md-6">
-                <a href="#" class="btn btn-primary pull-right">Buat Diagnosa Baru</a>
+                <a href="{{ route('diagnose.regis') }}" class="btn btn-primary pull-right">Buat Diagnosa Baru</a>
             </div>
             <div class="col-md-12">
                 <h4>Riwayat Diagnosa Penyakit</h4>
