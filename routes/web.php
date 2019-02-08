@@ -29,4 +29,11 @@ Route::group(['namespace' => 'Web'], function () {
 
         });
     });
+
+    Route::name('rule.')->group( function() {
+        Route::group(['namespace' => 'Rule','prefix' => 'ketentuan'], function () {
+            Route::get('/','RuleController@index')->name('index');
+
+        });
+    });
 });
