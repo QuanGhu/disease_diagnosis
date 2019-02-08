@@ -16,7 +16,7 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li><a href="{{ route('user.index') }}">List Pengguna</a></li>
-            <li><a href="#">List Level Pengguna</a></li>
+            <li><a href="{{ route('level.index') }}">List Level Pengguna</a></li>
         </ul>
     </li>
 </ul>
