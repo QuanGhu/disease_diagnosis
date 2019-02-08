@@ -19,4 +19,5 @@
             <li><a href="{{ route('level.index') }}">List Level Pengguna</a></li>
         </ul>
     </li>
+    <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i> Keluar</a></li>
 </ul>
