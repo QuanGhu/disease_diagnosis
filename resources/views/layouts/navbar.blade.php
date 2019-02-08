@@ -10,4 +10,5 @@
             <li><a href="{{ route('rule.index') }}">Ketentuan</a></li>
         </ul>
     </li>
+    <li><a href="{{ route('diagnose.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Hasil Diagnosa Penyakit</a></li>
 </ul>

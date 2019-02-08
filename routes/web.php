@@ -61,6 +61,13 @@ Route::group(['namespace' => 'Web'], function () {
 
         });
     });
+
+    Route::name('diagnose.')->group( function() {
+        Route::group(['namespace' => 'Diagnose','prefix' => 'diagnosa'], function () {
+            Route::get('/','DiagnoseController@index')->name('index');
+
+        });
+    });
 });
 
 Auth::routes();
