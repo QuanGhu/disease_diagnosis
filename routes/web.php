@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['namespace' => 'Web'], function () {
+    Route::group(['namespace' => 'Dashboard'], function () {
+        Route::get('/','DashboardController@index')->name('home');
+    });
 });
