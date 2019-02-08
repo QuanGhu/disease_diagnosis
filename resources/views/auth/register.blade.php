@@ -1,77 +1,119 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kualitas Tanah</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .website-name {
+            height: 200px;
+            text-align: center;
+            padding: 25px;
+            background-image: url('assets/img/soil_bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-position: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="website-name">
+            <h3>Sistem Pakar Mendiagnosa Kesuburan Tanah</h3>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                            <li><a href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Masuk</a></li>
+                            <li><a href="{{ route('login.admin.view') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Masuk Admin</a></li>
+                            <li><a href="{{ route('register.view') }}"><i class="fa fa-user-plus" aria-hidden="true"></i> Daftar</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        @if (session()->has('danger'))
+            <div class="alert alert-danger">
+                <strong>Error!</strong>
+                {{ session()->get('danger') }}
+            </div>
+        @endif
+    
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                <strong>Success!</strong>
+                {{ session()->get('success') }}
+            </div>
+        @endif
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-box">
+                        <h3 class="signin-title-secondary">Silakan daftar untuk melanjutkan.</h3>
+                        {!! Form::open(['id' => 'form','route' => 'register']) !!}
+                            <div class="row row-xs mg-b-10">
+                                <div class="col-md-12">
+                                    <input name="name" type="text" class="form-control" placeholder="Masukan nama lengkap anda">
+                                </div>
+                                <div class="col-md-12 mg-t-10 mg-sm-t-0">
+                                    <input name="username" type="text" class="form-control" placeholder="Masukan nama pengguna anda">
+                                </div>
+                            </div><!-- row -->
+            
+                            <div class="row row-xs mg-b-10">
+                                <div class="col-md-12">
+                                    <input name="email" type="email" class="form-control" placeholder="Masukan email anda">
+                                </div>
+                                <div class="col-md-12 mg-t-10 mg-sm-t-0">
+                                    <input name="password" type="password" class="form-control" placeholder="Masukan password anda">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+            
+                            <div class="row row-xs mg-b-10">
+                                <div class="col-md-12">
+                                    {!! Form::select('gender', ['L' => 'Laki Laki', 'P' => 'Perempuan'], null, 
+                                        ['placeholder' => 'Pilih Jenis Kelamin','class' => 'form-control']) !!}
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                    
+                            <div class="row row-xs mg-b-10">
+                                <div class="col-md-12">
+                                    <textarea name="address" placeholder="Masukan alamat anda" class="form-control"></textarea>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                            <button type="submit" class="btn btn-primary btn-block btn-signin">Daftar</button>
+                        {!! Form::close() !!}
+                        <p class="mg-t-40 mg-b-0">Sudah punya akun? <a href="{{ route('login') }}">Masuk disini</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+</body>
+</html>

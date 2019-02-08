@@ -12,10 +12,17 @@
 */
 
 
-Route::get('/','Web\Dashboard\DashboardController@index')->name('home');
+Route::get('/login','Auth\LoginController@loginView')->name('login');
+Route::get('/loginadmin','Auth\LoginController@adminLoginView')->name('login.admin.view');
+Route::post('/loginForUser','Auth\LoginController@loginForUser')->name('login.user');
+Route::post('/loginForAdmin','Auth\LoginController@loginForAdmin')->name('login.admin.process');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
+Route::get('/register','Auth\RegisterController@registerView')->name('register.view');
+Route::post('/register','Auth\RegisterController@register')->name('register');
 
-Route::group(['namespace' => 'Web'], function () {
-
+Route::group(['namespace' => 'Web','middleware' => 'auth'], function () {
+    
+    Route::get('/','Dashboard\DashboardController@index')->name('home');
     Route::name('disease.')->group( function () {
         Route::group(['namespace' => 'Disease','prefix' => 'penyakit'], function () {
             Route::get('/','DiseaseController@index')->name('index');
