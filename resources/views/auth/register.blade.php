@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kualitas Tanah</title>
+    <title>Document</title>
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <style>
         .website-name {
@@ -24,7 +24,7 @@
 <body>
     <div class="header">
         <div class="website-name">
-            <h3>Sistem Pakar Mendiagnosa Kesuburan Tanah</h3>
+            <h3>Sistem Pakar Diagnosa Penyakit</h3>
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
