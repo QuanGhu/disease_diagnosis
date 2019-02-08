@@ -30,16 +30,17 @@
         </div>
     @endif
     <div class="container">
-      {!! Form::open(['id' => 'form','route' => 'diagnose.process']) !!}
-      {!! Form::hidden('user_id', Auth::user()->id) !!}
+      
       <div class="row mg-t-10">
         <div class="col-md-12">
-            <a target="_blank" href="{{ route('diagnose.process') }}" class="btn btn-default pull-right">Cancel</a>
+            <a href="{{ route('diagnose.index') }}" class="btn btn-default pull-right">Cancel</a>
         </div>
         <div class="col-md-12">
-          <h4>Isian Analisa Tanah</h4>
+          <h4>Isian Diagnosa Penyakit</h4>
           {{-- <p class="mg-b-20 mg-sm-b-40">Informasi Data Diri</p> --}}
         </div>
+        {!! Form::open(['id' => 'form','route' => 'diagnose.process']) !!}
+        {!! Form::hidden('user_id', Auth::user()->id) !!}
         <div style="display: none">
             <div class="col-md-6">
                 <div class="form-group">
