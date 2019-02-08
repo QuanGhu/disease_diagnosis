@@ -12,8 +12,21 @@
 */
 
 
+Route::get('/','Web\Dashboard\DashboardController@index')->name('home');
+
 Route::group(['namespace' => 'Web'], function () {
-    Route::group(['namespace' => 'Dashboard'], function () {
-        Route::get('/','DashboardController@index')->name('home');
+
+    Route::name('disease.')->group( function () {
+        Route::group(['namespace' => 'Disease','prefix' => 'penyakit'], function () {
+            Route::get('/','DiseaseController@index')->name('index');
+
+        });
+    });
+
+    Route::name('cause.')->group( function() {
+        Route::group(['namespace' => 'Cause','prefix' => 'gejala'], function () {
+            Route::get('/','CauseController@index')->name('index');
+
+        });
     });
 });
