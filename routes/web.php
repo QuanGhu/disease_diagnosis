@@ -29,6 +29,10 @@ Route::group(['namespace' => 'Web'], function () {
     Route::name('cause.')->group( function() {
         Route::group(['namespace' => 'Cause','prefix' => 'gejala'], function () {
             Route::get('/','CauseController@index')->name('index');
+            Route::post('/list','CauseController@list')->name('list');
+            Route::post('/save','CauseController@save')->name('save');
+            Route::put('/update','CauseController@update')->name('update');
+            Route::delete('/delete','CauseController@delete')->name('delete');
 
         });
     });

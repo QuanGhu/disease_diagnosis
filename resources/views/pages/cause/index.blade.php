@@ -47,7 +47,7 @@
             searching: true,
             autoWidth: false,
             ajax: {
-                    url :"{{ route('disease.list') }}",
+                    url :"{{ route('cause.list') }}",
                     data: { '_token' : "{{ csrf_token() }}"},
                     type: 'POST',
             },
@@ -78,7 +78,7 @@
                     closeOnConfirm: true 
                 }, function(){
                     $('.preloader').show();
-                    remove(data.id,"{{ route('disease.delete') }}", "{{ csrf_token() }}")   
+                    remove(data.id,"{{ route('cause.delete') }}", "{{ csrf_token() }}")   
                     .then((result) => {
                         $('.preloader').hide();
                         $.toast({
@@ -109,7 +109,7 @@
             }else {
                 $('#id').val(data.id);
                 $('#type').val('PUT');
-                $('#code_name').val(data.code_name);
+                $('#code').val(data.code);
                 $('#name').val(data.name);
                 $('#modalForm').modal('show');
             }
@@ -127,7 +127,7 @@
                     const data = $('#form').serialize();
                     if($('#type').val() === 'POST')
                     {
-                        save(data,"{{ route('disease.save') }}", "{{ csrf_token() }}")
+                        save(data,"{{ route('cause.save') }}", "{{ csrf_token() }}")
                         .then((result) => {
                             $('#form')[0].reset();
                             $('#modalForm').modal('hide')
@@ -157,7 +157,7 @@
                             $('#dataTable').DataTable().ajax.reload();
                         })
                     } else {
-                        update(data,"{{ route('disease.update') }}","{{ csrf_token() }}")
+                        update(data,"{{ route('cause.update') }}","{{ csrf_token() }}")
                         .then((result) => {
                             $('#form')[0].reset();
                             $('#modalForm').modal('hide')

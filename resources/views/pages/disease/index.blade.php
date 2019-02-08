@@ -38,7 +38,7 @@
 <script src="{{ asset('theme/js/scripts.js') }}"></script>
 <script>
     $( document ).ready(function() {
-        console.log('asdasd')
+
         var dt = $('#dataTable').DataTable({
             orderCellsTop: true,
             responsive: true,
