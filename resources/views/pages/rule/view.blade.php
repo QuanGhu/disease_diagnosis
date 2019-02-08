@@ -52,7 +52,7 @@
                 </div>
     
                 <div class="form-layout-footer">
-                    <a href="#" class="btn btn-default bd-0">Kembali</a>
+                    <a href="{{ route('rule.index') }}" class="btn btn-default bd-0">Kembali</a>
                 </div>
             </div>
         </div>

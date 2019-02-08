@@ -40,6 +40,13 @@ Route::group(['namespace' => 'Web'], function () {
     Route::name('rule.')->group( function() {
         Route::group(['namespace' => 'Rule','prefix' => 'ketentuan'], function () {
             Route::get('/','RuleController@index')->name('index');
+            Route::get('/new','RuleController@new')->name('new');
+            Route::get('/edit/{id}','RuleController@edit')->name('edit');
+            Route::get('/view/{id}','RuleController@view')->name('view');
+            Route::post('/list','RuleController@list')->name('list');
+            Route::post('/save','RuleController@save')->name('save');
+            Route::put('/update','RuleController@update')->name('update');
+            Route::delete('/delete','RuleController@delete')->name('delete');
 
         });
     });

@@ -30,7 +30,7 @@
         </div>
     @endif
     <div class="container">
-        {!! Form::open(['id' => 'form','method' => 'PUT']) !!}
+        {!! Form::open(['id' => 'form','method' => 'PUT','route' => 'rule.update']) !!}
         <div class="col-md-12">
             <h4>Isian Ketentuan Gejala Berdasarkan Penyakit</h4>
         </div>
@@ -45,10 +45,10 @@
             <p class="mg-b-20 mg-sm-b-40">Pilihlah beberapa kriteria berikut yang sesuai dengan sifat tanah</p>
             <div class="row mg-b-25">
                 @foreach($causes as $cause)
-                    @if(in_array($cause->id, $causeChecked))
+                    @if(in_array($cause->id, $causesChecked))
                         <div class="col-lg-3">
                             <label class="ckbox">
-                                <input name="cause_id[]" type="checkbox" value="{{ $cause->id }}" checked>
+                                <input name="causes_id[]" type="checkbox" value="{{ $cause->id }}" checked>
                                 <span>
                                     {{ $cause->name }}
                                 </span>
@@ -57,7 +57,7 @@
                     @else
                         <div class="col-lg-3">
                             <label class="ckbox">
-                                <input name="cause_id[]" type="checkbox" value="{{ $cause->id }}">
+                                <input name="causes_id[]" type="checkbox" value="{{ $cause->id }}">
                                 <span>
                                     {{ $cause->name }}
                                 </span>

@@ -16,4 +16,9 @@ class Disease extends Model
     {
         return $this->hasMany('App\Models\Solution','disease_id');
     }
+
+    public function rules()
+    {
+        return $this->hasMany('App\Models\Rule','disease_id');
+    }
 }

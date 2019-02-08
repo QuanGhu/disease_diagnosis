@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row mg-t-10">
             <div class="col-md-12">
-                <a href="#" class="btn btn-primary pull-right">Tambah Data</a>
+                <a href="{{ route('rule.new') }}" class="btn btn-primary pull-right">Tambah Data</a>
             </div>
             <div class="col-md-12">
                 <h4>Data Ketentuan Penyakit</h4>
@@ -43,7 +43,6 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Penyakit</th>
                                 <th>Nama Penyakit</th>
                                 <th>Ketentuan Gejela</th>
                                 <th></th>
@@ -60,7 +59,77 @@
 <script src="{{ asset('theme/js/scripts.js') }}"></script>
 <script>
     $( document ).ready(function() {
- 
+
+        var dt = $('#dataTable').DataTable({
+            orderCellsTop: true,
+            responsive: true,
+            processing: true,
+            serverSide: true,
+            searching: true,
+            autoWidth: false,
+            ajax: {
+                    url :"{{ route('rule.list') }}",
+                    data: { '_token' : "{{ csrf_token() }}"},
+                    type: 'POST',
+            },
+            columns: [
+                { data: 'DT_RowIndex', orderable: false, searchable: false, "width": "30px"},
+                { data: 'name', name: 'name' },
+                { data: 'rule', name: 'rule' },
+                { data: 'action', name: 'action', "width" : "180px", orderable: false }
+            ]
+        });
+
+        $('table#dataTable tbody').on( 'click', 'td button', function (e) {
+            var mode = $(this).attr("data-mode");
+            var parent = $(this).parent().get( 0 );
+            var parent1 = $(parent).parent().get( 0 );
+            var row = dt.row(parent1);
+            var data = row.data();
+
+            if($(this).hasClass('delete')) {
+                swal({   
+                    title: "Hapus",   
+                    text: "Apakah Anda Yakin Untuk Menghapus Data Ini ?",   
+                    type: "warning",   
+                    showCancelButton: true,
+                    cancelButtonText: "No",   
+                    confirmButtonColor: "#DD6B55",   
+                    confirmButtonText: "Ya Saya Yakin",   
+                    closeOnConfirm: true 
+                }, function(){
+                    $('.preloader').show();
+                    remove(data.id,"{{ route('rule.delete') }}", "{{ csrf_token() }}")   
+                    .then((result) => {
+                        $('.preloader').hide();
+                        $.toast({
+                            heading: 'Success !!',
+                            text: result.message,
+                            position: 'top-right',
+                            loaderBg:'#ff6849',
+                            icon: 'success',
+                            hideAfter: 3500, 
+                            stack: 6
+                        });
+                        $('#dataTable').DataTable().ajax.reload();
+                    })
+                    .catch((err) => {
+                        $('.preloader').hide();
+                        $.toast({
+                            heading: 'Error !!!',
+                            text: err.responseJSON.message,
+                            position: 'top-right',
+                            loaderBg:'#ff6849',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                        $('#dataTable').DataTable().ajax.reload();
+                    })
+                });
+                
+            }
+        });
+        
     });
 </script>
 @endpush

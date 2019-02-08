@@ -11,4 +11,9 @@ class Cause extends Model
     protected $fillable = [
         'name','code'
     ];
+
+    public function rules()
+    {
+        return $this->hasMany('App\Models\Rule','cause_id');
+    }
 }

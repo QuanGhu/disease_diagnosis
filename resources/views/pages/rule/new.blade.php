@@ -30,7 +30,7 @@
         </div>
     @endif
     <div class="container">
-        {!! Form::open(['id' => 'form']) !!}
+        {!! Form::open(['id' => 'form','route' => 'rule.save']) !!}
         <div class="row mg-t-10">
             <div class="col-md-12">
                 <h4>Isian Ketentuan Gejala Berdasarkan Penyakit</h4>
@@ -48,7 +48,7 @@
                     @foreach($causes as $cause)
                         <div class="col-md-3">
                             <label class="ckbox">
-                                <input name="cause_id[]" type="checkbox" value="{{ $criteria->id }}">
+                                <input name="causes_id[]" type="checkbox" value="{{ $cause->id }}">
                                 <span>
                                     {{ $cause->name }}
                                 </span>
