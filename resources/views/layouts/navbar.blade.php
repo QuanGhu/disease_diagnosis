@@ -11,4 +11,12 @@
         </ul>
     </li>
     <li><a href="{{ route('diagnose.index') }}"><i class="fa fa-search" aria-hidden="true"></i> Hasil Diagnosa Penyakit</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user-md" aria-hidden="true"></i> Administrator
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ route('user.index') }}">List Pengguna</a></li>
+            <li><a href="#">List Level Pengguna</a></li>
+        </ul>
+    </li>
 </ul>

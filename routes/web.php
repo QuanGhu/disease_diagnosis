@@ -68,8 +68,13 @@ Route::group(['namespace' => 'Web'], function () {
 
         });
     });
+
+    Route::name('user.')->group( function() {
+        Route::group(['namespace' => 'Admin','prefix' => 'admin'], function () {
+            Route::get('/','UserController@index')->name('index');
+            Route::post('/list','UserController@list')->name('list');
+
+        });
+    });
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
