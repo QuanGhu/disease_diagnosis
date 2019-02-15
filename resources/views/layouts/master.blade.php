@@ -1,60 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="{{ asset('theme/css/jquery.toast.css') }}" rel="stylesheet">
-    <link href="{{ asset('theme/css/sweetalert.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <style>
-        .website-name {
-            height: 200px;
-            text-align: center;
-            padding: 25px;
-            background-image: url('/assets/img/soil_bg.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            width: 100%;
-            background-position: center;
-            color: #fff;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sistem Pakar</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="{{ asset('awkawrd/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('awkawrd/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('awkawrd/css/ionicons.min.css') }}">
+  <link href="{{ asset('theme/css/jquery.toast.css') }}" rel="stylesheet">
+  <link href="{{ asset('theme/css/sweetalert.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('awkawrd/css/AdminLTE.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('awkawrd/css/_all-skins.min.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body>
-    <div class="header">
-        <div class="website-name">
-            <h3>Sistem Pakar Diagnosa Penyakit</h3>
-        </div>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span> 
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    @include('layouts.navbar')
-                    
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="content">
-      @yield('content')
-    </div>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <header class="main-header">
+    <a href="#" class="logo">
+      <span class="logo-mini"><b>A</b></span>
+      <span class="logo-lg"><b>Admin</b></span>
+    </a>
+    <nav class="navbar navbar-static-top">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
 
-    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/dataTables.bootstrap.js') }}"></script>
-    <script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
-    <script src="{{ asset('theme/js/jquery.toast.js') }}"></script>
-    <script src="{{ asset('theme/js/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('theme/js/jquery.sweet-alert.custom.js') }}"></script>
-    @stack('scripts')
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="main-sidebar">
+    @include('layouts.navbar')
+  </aside>
+
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        Sistem Pakar
+      </h1>
+    </section>
+
+    <section class="content">
+        @yield('content')
+    </section>
+
+  </div>
+
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
+    </div>
+  </footer>
+</div>
+
+<script src="{{ asset('awkawrd/js/jquery.min.js') }}"></script>
+<script src="{{ asset('awkawrd/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('theme/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
+<script src="{{ asset('theme/js/jquery.toast.js') }}"></script>
+<script src="{{ asset('theme/js/sweetalert.min.js') }}"></script>
+<script src="{{ asset('theme/js/jquery.sweet-alert.custom.js') }}"></script>
+<script src="{{ asset('awkawrd/js/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('awkawrd/js/fastclick.js') }}"></script>
+<script src="{{ asset('awkawrd/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('awkawrd/js/demo.js') }}"></script>
+<script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+</script>
+@stack('scripts')
 </body>
 </html>
