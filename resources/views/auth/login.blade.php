@@ -13,6 +13,28 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
+    @if (session()->has('danger'))
+        <div class="alert alert-danger">
+            <strong>Error!</strong>
+            {{ session()->get('danger') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            <strong>Success!</strong>
+            {{ session()->get('success') }}
+        </div>
+    @endif
 <div class="login-box">
   <div class="login-logo">
     <a href="#">Sistem Pakar Diagnosa Penyakit</a>
