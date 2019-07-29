@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
             height: 200px;
             text-align: center;
             padding: 25px;
-            background-image: url('/assets/img/soil_bg.jpg');
+            background-image: url('/assets/img/header-bg.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             width: 100%;
@@ -25,7 +25,7 @@
 <body>
     <div class="header">
         <div class="website-name">
-            <h3>Sistem Pakar Diagnosa Penyakit</h3>
+            <h3>Sistem Pakar Diagnosa Penyakit Kista</h3>
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -46,26 +46,15 @@
     <div class="content">
       @yield('content')
     </div>
-  </footer>
-</div>
 
-<script src="{{ asset('awkawrd/js/jquery.min.js') }}"></script>
-<script src="{{ asset('awkawrd/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('theme/js/dataTables.bootstrap.js') }}"></script>
-<script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
-<script src="{{ asset('theme/js/jquery.toast.js') }}"></script>
-<script src="{{ asset('theme/js/sweetalert.min.js') }}"></script>
-<script src="{{ asset('theme/js/jquery.sweet-alert.custom.js') }}"></script>
-<script src="{{ asset('awkawrd/js/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ asset('awkawrd/js/fastclick.js') }}"></script>
-<script src="{{ asset('awkawrd/js/adminlte.min.js') }}"></script>
-<script src="{{ asset('awkawrd/js/demo.js') }}"></script>
-<script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
-</script>
-@stack('scripts')
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('theme/js/dataTables.bootstrap.js') }}"></script>
+    <script src="{{ asset('theme/js/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.toast.js') }}"></script>
+    <script src="{{ asset('theme/js/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('theme/js/jquery.sweet-alert.custom.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

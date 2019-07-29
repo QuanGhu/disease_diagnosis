@@ -1,13 +1,22 @@
 @extends('layouts.master')
+@section('breadcrumbs')
+<ol class="breadcrumb slim-breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Solusi Sifat Tanah</li>
+</ol>
+@endsection
+@section('page_title','Solusi Sifat Tanah')
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row mg-t-10">
             <div class="col-md-12">
-                @component('components.box')
-                    @slot('title' ,'Data Solusi Penyakit')
-                    @slot('link')
-                        <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalForm">Tambah Data</a>
-                    @endslot
+                <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#modalForm">Tambah Data</a>
+            </div>
+            <div class="col-md-12">
+                <h4>Data Solusi Penyakit</h4>
+            </div>
+            <div class="col-md-12">
+                <div class="table-responsive">
                     <table id="dataTable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -19,7 +28,7 @@
                         </thead>
                         <tbody></tbody>
                     </table>
-                @endcomponent
+                </div>
             </div>
         </div>
     </div>

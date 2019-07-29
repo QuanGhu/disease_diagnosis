@@ -1,13 +1,25 @@
 @extends('layouts.master')
+@section('breadcrumbs')
+<ol class="breadcrumb slim-breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page"></li>
+</ol>
+@endsection
+@section('page_title','History Penilaian Tanah')
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row mg-t-10">
+            <div class="col-md-6">
+                <a target="_blank" href="#" class="btn btn-default">Cetak Tabel</a>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ route('diagnose.regis') }}" class="btn btn-primary pull-right">Buat Diagnosa Baru</a>
+            </div>
             <div class="col-md-12">
-                @component('components.box')
-                    @slot('title' ,'Riwayat Diagnosa Penyakit')
-                    @slot('link')
-                        <a href="{{ route('diagnose.regis') }}" class="btn btn-primary pull-right">Buat Diagnosa Baru</a>
-                    @endslot
+                <h4>Riwayat Diagnosa Penyakit</h4>
+            </div>
+            <div class="col-md-12">
+                <div class="table-responsive">
                     <table id="dataTable" class="table table-striped table-bordered">
                         <thead>
                             <tr>
@@ -19,7 +31,7 @@
                         </thead>
                         <tbody></tbody>
                     </table>
-                @endcomponent
+                </div>
             </div>
         </div>
     </div>
