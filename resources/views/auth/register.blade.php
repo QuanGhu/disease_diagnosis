@@ -12,7 +12,7 @@
             height: 200px;
             text-align: center;
             padding: 25px;
-            background-image: url('assets/img/soil_bg.jpg');
+            background-image: url('assets/img/header-bg.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             width: 100%;
@@ -24,7 +24,7 @@
 <body>
     <div class="header">
         <div class="website-name">
-            <h3>Sistem Pakar Diagnosa Penyakit</h3>
+            <h3>Sistem Pakar Diagnosa Penyakit Kista</h3>
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
