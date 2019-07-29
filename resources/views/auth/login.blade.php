@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sistem Pakar</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="{{ asset('awkawrd/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('awkawrd/css/font-awesome.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('awkawrd/css/ionicons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('awkawrd/css/AdminLTE.min.css') }}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <style>
+        .website-name {
+            height: 200px;
+            text-align: center;
+            padding: 25px;
+            background-image: url('assets/img/header-bg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            background-position: center;
+            color: #fff;
+        }
+    </style>
 </head>
-<body class="hold-transition login-page">
-    @if (session()->has('danger'))
-        <div class="alert alert-danger">
-            <strong>Error!</strong>
-            {{ session()->get('danger') }}
+<body>
+    <div class="header">
+        <div class="website-name">
+            <h3>Sistem Pakar Diagnosa Penyakit Kista</h3>
         </div>
     @endif
 
