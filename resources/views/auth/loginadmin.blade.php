@@ -69,19 +69,17 @@
         @endif
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="login-box">
-                        <h3 class="signin-title-secondary">Halaman Login Ini Hanya Untuk Admin</h3>
-                        {!! Form::open(['id' => 'form','route' => 'login.admin.process']) !!}
-                            <div class="form-group">
-                                <input name="email" type="text" class="form-control" placeholder="Masukan email anda">
-                            </div>
-                            <div class="form-group mg-b-50">
-                                <input name="password" type="password" class="form-control" placeholder="Masukan Password Anda">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block btn-signin">Masuk</button>
-                        {!! Form::close() !!}
-                    </div>
+                <div class="col-md-12">
+                    <h3 class="signin-title-secondary">Halaman Login Ini Hanya Untuk Admin</h3>
+                    {!! Form::open(['id' => 'form','route' => 'login.admin.process']) !!}
+                        <div class="form-group">
+                            <input name="email" type="text" class="form-control w-30" placeholder="Masukan email anda">
+                        </div>
+                        <div class="form-group mg-b-50">
+                            <input name="password" type="password" class="form-control w-30" placeholder="Masukan Password Anda">
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right btn-signin">Masuk</button>
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>
