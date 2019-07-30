@@ -70,44 +70,33 @@
         @endif
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="login-box">
-                        <h3 class="signin-title-secondary">Silakan daftar untuk melanjutkan.</h3>
-                        {!! Form::open(['id' => 'form','route' => 'register']) !!}
-                            <div class="row row-xs mg-b-10">
-                                <div class="col-md-12">
-                                    <input name="name" type="text" class="form-control" placeholder="Masukan nama lengkap anda">
-                                </div>
-                                <div class="col-md-12 mg-t-10 mg-sm-t-0">
-                                    <input name="username" type="text" class="form-control" placeholder="Masukan nama pengguna anda">
-                                </div>
-                            </div><!-- row -->
-            
-                            <div class="row row-xs mg-b-10">
-                                <div class="col-md-12">
-                                    <input name="email" type="email" class="form-control" placeholder="Masukan email anda">
-                                </div>
-                                <div class="col-md-12 mg-t-10 mg-sm-t-0">
-                                    <input name="password" type="password" class="form-control" placeholder="Masukan password anda">
-                                </div>
+                <div class="col-md-12">
+                    <h3 class="signin-title-secondary">Silakan daftar untuk melanjutkan.</h3>
+                    {!! Form::open(['id' => 'form','route' => 'register']) !!}
+                        <div class="row row-xs mg-b-10">
+                            <div class="col-md-6 mg-b-10">
+                                <input name="name" type="text" class="form-control" placeholder="Masukan nama lengkap anda">
                             </div>
-            
-                            <div class="row row-xs mg-b-10">
-                                <div class="col-md-12">
-                                    {!! Form::select('gender', ['L' => 'Laki Laki', 'P' => 'Perempuan'], null, 
-                                        ['placeholder' => 'Pilih Jenis Kelamin','class' => 'form-control']) !!}
-                                </div>
+                            <div class="col-md-6 mg-b-10">
+                                <input name="username" type="text" class="form-control" placeholder="Masukan nama pengguna anda">
                             </div>
-                    
-                            <div class="row row-xs mg-b-10">
-                                <div class="col-md-12">
-                                    <textarea name="address" placeholder="Masukan alamat anda" class="form-control"></textarea>
-                                </div>
+                            <div class="col-md-6 mg-b-10">
+                                <input name="email" type="email" class="form-control" placeholder="Masukan email anda">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block btn-signin">Daftar</button>
-                        {!! Form::close() !!}
-                        <p class="mg-t-40 mg-b-0">Sudah punya akun? <a href="{{ route('login') }}">Masuk disini</a></p>
-                    </div>
+                            <div class="col-md-6 mg-b-10">
+                                <input name="password" type="password" class="form-control" placeholder="Masukan password anda">
+                            </div>
+                            <div class="col-md-6 mg-b-10">
+                                {!! Form::select('gender', ['L' => 'Laki Laki', 'P' => 'Perempuan'], null, 
+                                    ['placeholder' => 'Pilih Jenis Kelamin','class' => 'form-control']) !!}
+                            </div>
+                            <div class="col-md-6 mg-b-10">
+                                <textarea name="address" placeholder="Masukan alamat anda" class="form-control"></textarea>
+                            </div>
+                        </div><!-- row -->
+                        <button type="submit" class="btn btn-primary pull-right btn-signin">Daftar</button>
+                    {!! Form::close() !!}
+                    <p class="mg-t-40 mg-b-0">Sudah punya akun? <a href="{{ route('login') }}">Masuk disini</a></p>
                 </div>
             </div>
         </div>
