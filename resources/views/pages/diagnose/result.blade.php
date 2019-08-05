@@ -80,7 +80,7 @@
                         <td>Penyakit</td>
                         <td>{{ $anaylze->result }}</td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td>Penyebab</td>
                         <td>
                             <ul>
@@ -89,7 +89,7 @@
                                 @endforeach
                             </ul>
                         </td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <td>Solusi</td>
                         <td>
