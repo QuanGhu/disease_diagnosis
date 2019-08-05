@@ -13,7 +13,7 @@
             height: 200px;
             text-align: center;
             padding: 25px;
-            background-image: url('/assets/img/header-bg.jpg');
+            background-image: url('{{ asset("/assets/img/header-bg.jpg")}}');
             background-size: cover;
             background-repeat: no-repeat;
             width: 100%;
