@@ -127,14 +127,14 @@
 <script>
   $( document ).ready(function() {
     
-    $(document).on('change','.cause_option',function() {
-        if($(this).val() == "")
-        {
-            $('.changing_button').removeAttr("type").attr("type","submit").removeClass('nextBtn')
-        } else {
-            $('.changing_button').removeAttr("type").attr("type","button").addClass('nextBtn')
-        }
-    })
+    // $(document).on('change','.cause_option',function() {
+    //     if($(this).val() == "")
+    //     {
+    //         $('.changing_button').removeAttr("type").attr("type","submit").removeClass('nextBtn')
+    //     } else {
+    //         $('.changing_button').removeAttr("type").attr("type","button").addClass('nextBtn')
+    //     }
+    // })
     var navListItems = $('div.setup-panel a'),
     allWells = $('.setup-content'),
     allNextBtn = $('.nextBtn');
