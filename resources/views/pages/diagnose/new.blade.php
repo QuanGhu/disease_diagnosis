@@ -95,7 +95,7 @@
               <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mg-t-10">
-                      <select name="causes_id[]" class="form-control">
+                      <select name="causes_id[]" class="form-control cause_option">
                         <option value="">Silakan Pilih Jawaban Anda</option>
                         <option value="{{ $cause->id }}">IYA</option>
                         <option value="">TIDAK</option>
@@ -111,7 +111,7 @@
                       @if($arrLength == $index)
                         <button type="submit" class="btn btn-primary pull-right" style="float:right;">Analisa</button>
                       @else
-                        <button class="btn btn-primary rounded nextBtn pull-right" type="button" style="float:right">Next</button>
+                        <button class="btn btn-primary rounded nextBtn changing_button pull-right" type="button" style="float:right">Next</button>
                       @endif
                   </div>
               </div>
@@ -126,6 +126,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 <script>
   $( document ).ready(function() {
+    
+    $(document).on('change','.cause_option',function() {
+        if($(this).val() == "")
+        {
+            $('.changing_button').removeAttr("type").attr("type","submit").removeClass('nextBtn')
+        } else {
+            $('.changing_button').removeAttr("type").attr("type","button").addClass('nextBtn')
+        }
+    })
     var navListItems = $('div.setup-panel a'),
     allWells = $('.setup-content'),
     allNextBtn = $('.nextBtn');

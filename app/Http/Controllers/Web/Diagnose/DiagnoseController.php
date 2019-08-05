@@ -57,7 +57,7 @@ class DiagnoseController extends Controller
     public function process(Request $request)
     {
         try {
-
+            
             $arrChoosen = [];
 
             foreach($request->causes_id as $cause)
